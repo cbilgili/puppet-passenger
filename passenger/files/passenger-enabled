@@ -1,0 +1,11 @@
+<IfModule mod_passenger.c>
+	PassengerRoot /opt/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/passenger-4.0.37
+	PassengerDefaultRuby /opt/ruby-2.0.0-p353/bin/ruby
+
+	# you probably want to tune these settings
+	PassengerHighPerformance on
+	PassengerMaxPoolSize 12
+	PassengerPoolIdleTime 1500
+	# PassengerMaxRequests 1000
+	PassengerStatThrottleRate 120
+</IfModule>
