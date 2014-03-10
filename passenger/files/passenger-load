@@ -1,1 +1,1 @@
-LoadModule passenger_module /opt/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/passenger-4.0.37/buildout/apache2/mod_passenger.so
+LoadModule passenger_module /usr/lib/ruby/gems/1.9.1/gems/passenger-4.0.37/buildout/apache2/mod_passenger.so
