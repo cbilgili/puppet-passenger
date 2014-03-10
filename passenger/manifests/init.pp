@@ -6,6 +6,7 @@ class passenger (
   $passenger_version = $passenger::params::passenger_version,
   $gem_path = $passenger::params::gem_path,
   $gem_binary_path = $passenger::params::gem_binary_path,
+  $passenger_start_timeout = $passenger::params::passenger_start_timeout,
   ) inherits passenger::params
 {
   # include ruby
