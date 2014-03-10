@@ -6,4 +6,5 @@ class passenger::params {
   $passenger_version = "4.0.37"
   $gem_path = "/opt/ruby-2.0.0-p353/lib/ruby/gems/2.0.0"
   $gem_binary_path = "/opt/ruby-2.0.0-p353/bin"
+  $passenger_start_timeout = "400"
 }
