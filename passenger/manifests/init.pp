@@ -2,16 +2,13 @@
 #
 #
 class passenger (
-  $passenger_root = $passenger::params::passenger_root,
-  $passenger_version = $passenger::params::passenger_version,
   $passenger_ruby = $passenger::params::passenger_ruby,
-  $mod_passenger_location = $passenger::params::mod_passenger_location,
+  $passenger_version = $passenger::params::passenger_version,
   $gem_path = $passenger::params::gem_path,
   $gem_binary_path = $passenger::params::gem_binary_path,
   ) inherits passenger::params
 {
   include ruby
-
   package {
     "libcurl4-openssl-dev":
       before  => Exec["passenger_apache_module"],
@@ -52,7 +49,7 @@ class passenger (
 
   file { '/etc/apache2/mods-available/passenger.load':
     ensure  => present,
-    source => "puppet:///modules/passenger/passenger-load",
+    content => template('passenger/passenger-load.erb'),
     owner   => '0',
     group   => '0',
     mode    => '0644',
@@ -62,7 +59,7 @@ class passenger (
 
   file { '/etc/apache2/mods-available/passenger.conf':
     ensure  => present,
-    source =>  "puppet:///modules/passenger/passenger-enabled",
+    content =>  template("passenger/passenger-enabled.erb"),
     owner   => '0',
     group   => '0',
     mode    => '0644',
