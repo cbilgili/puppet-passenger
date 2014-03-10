@@ -1,5 +1,5 @@
 <IfModule mod_passenger.c>
-	PassengerRoot <%= $gem_path  %>/gems/passenger-<%= $passenger_version %>
+	PassengerRoot <%= @gem_path  %>/gems/passenger-<%= @passenger_version %>
   PassengerDefaultRuby <%= @passenger_ruby %>
 
 	# you probably want to tune these settings

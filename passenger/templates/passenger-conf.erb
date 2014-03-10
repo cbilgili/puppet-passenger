@@ -1,5 +1,5 @@
-LoadModule passenger_module <%= $gem_path  %>/gems/passenger-<%= $passenger_version %>/buildout/apache2/mod_passenger.so
-PassengerRoot <%= $gem_path  %>/gems/passenger-<%= $passenger_version %>
+LoadModule passenger_module <%= @gem_path  %>/gems/passenger-<%= @passenger_version %>/buildout/apache2/mod_passenger.so
+PassengerRoot <%= @gem_path  %>/gems/passenger-<%= @passenger_version %>
 PassengerDefaultRuby <%= @passenger_ruby %>
 
 # you probably want to tune these settings
