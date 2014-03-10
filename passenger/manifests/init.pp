@@ -35,7 +35,7 @@ class passenger (
         group   => root,
         alias   => "install_passenger",
         before  => Exec["passenger_apache_module"],
-        require => Class["ruby"],
+        # require => Class["ruby"],
         unless  => "ls ${gem_path}/gems/passenger-${passenger_version}/"
     }
     exec {
