@@ -1,5 +1,5 @@
 name 'cbilgili-passenger'
-version '0.0.2'
+version '0.0.3'
 summary 'Simple passenger module'
 description 'Just adding passenger confs to apache'
 dependency 'puppetlabs/stdlib'
