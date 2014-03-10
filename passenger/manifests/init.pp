@@ -2,12 +2,12 @@
 #
 #
 class passenger (
-  $passenger_root = $passenger::params::passenger_root
-  $passenger_version = $passenger::params::passenger_version
-  $passenger_ruby = $passenger::params::passenger_ruby
-  $mod_passenger_location = $passenger::params::mod_passenger_location
-  $gem_path = $passenger::params::gem_path
-  $gem_binary_path = $passenger::params::gem_binary_path
+  $passenger_root = $passenger::params::passenger_root,
+  $passenger_version = $passenger::params::passenger_version,
+  $passenger_ruby = $passenger::params::passenger_ruby,
+  $mod_passenger_location = $passenger::params::mod_passenger_location,
+  $gem_path = $passenger::params::gem_path,
+  $gem_binary_path = $passenger::params::gem_binary_path,
   ) inherits passenger::params
 {
   include ruby
