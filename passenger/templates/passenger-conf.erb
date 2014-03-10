@@ -1,0 +1,10 @@
+LoadModule passenger_module <%= @mod_passenger_location %>
+PassengerRoot <%= @passenger_root %>
+PassengerDefaultRuby <%= @passenger_ruby %>
+
+# you probably want to tune these settings
+PassengerHighPerformance on
+PassengerMaxPoolSize 12
+PassengerPoolIdleTime 1500
+# PassengerMaxRequests 1000
+PassengerStatThrottleRate 120
