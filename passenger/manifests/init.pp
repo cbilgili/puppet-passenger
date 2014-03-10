@@ -8,7 +8,7 @@ class passenger (
   $gem_binary_path = $passenger::params::gem_binary_path,
   ) inherits passenger::params
 {
-  include ruby
+  # include ruby
   package {
     "libcurl4-openssl-dev":
       before  => Exec["passenger_apache_module"],
