@@ -8,4 +8,5 @@
 	PassengerPoolIdleTime 1500
 	# PassengerMaxRequests 1000
 	PassengerStatThrottleRate 120
+  PassengerStartTimeout 400
 </IfModule>
