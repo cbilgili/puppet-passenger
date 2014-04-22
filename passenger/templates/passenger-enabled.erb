@@ -2,11 +2,17 @@
 	PassengerRoot <%= @gem_path  %>/gems/passenger-<%= @passenger_version %>
   PassengerDefaultRuby <%= @passenger_ruby %>
 
-	# you probably want to tune these settings
+
+  # http://stackoverflow.com/questions/853532/slow-initial-server-startup-when-using-phusion-passenger-and-rails
+  # Speeds up spawn time tremendously -- if your app is compatible. 
+  # RMagick seems to be incompatible with smart spawning
+  # Older versions of Passenger called this RailsSpawnMethod
+  PassengerSpawnMethod smart
 	PassengerHighPerformance on
-	PassengerMaxPoolSize 12
-	PassengerPoolIdleTime 1500
-	# PassengerMaxRequests 1000
-	PassengerStatThrottleRate 120
+	PassengerMaxPoolSize <%= @passenger_max_pool_size %>
+	PassengerPoolIdleTime <%= @passenger_pool_idle_time %>
+	PassengerMaxRequests <%= @passenger_max_requests %>
+  PassengerMinInstances <%= @passenger_min_instances %>
+	PassengerStatThrottleRate <%= @passenger_stat_throttle_rate %>
   PassengerStartTimeout <%= @passenger_start_timeout %>
 </IfModule>
