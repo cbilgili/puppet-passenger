@@ -34,24 +34,25 @@ class passenger (
       before  => Exec["passenger_apache_module"];
   }
 
-  exec { 
-      # "/usr/local/bin/gem install passenger -v=4.0.37":
-      "gem install passenger -v=${passenger_version}":
-        user    => root,
-        group   => root,
-        alias   => "install_passenger",
-        before  => Exec["passenger_apache_module"],
-        # require => Class["ruby"],
-        unless  => "ls ${gem_path}/gems/passenger-${passenger_version}/"
-    }
-    exec {
-      "${gem_binary_path}/passenger-install-apache2-module --auto":
-        user    => root,
-        group   => root,
-        path    => "/bin:/usr/bin:/usr/local/apache2/bin/",
-        alias   => "passenger_apache_module",
-        unless  => "ls ${gem_path}/gems/passenger-${passenger_version}/buildout/apache2/mod_passenger.so"
-    }
+  # exec { 
+  #     # "/usr/local/bin/gem install passenger -v=4.0.37":
+  #     "gem install passenger -v=${passenger_version}":
+  #       user    => root,
+  #       group   => root,
+  #       alias   => "install_passenger",
+  #       before  => Exec["passenger_apache_module"],
+  #       # require => Class["ruby"],
+  #       unless  => "ls ${gem_path}/gems/passenger-${passenger_version}/"
+  #   }
+  rbenv::gem { 'passenger': version => '4.0.37', ruby_version => '2.0.0-p247' }
+  exec {
+    "${gem_binary_path}/passenger-install-apache2-module --auto":
+      user    => root,
+      group   => root,
+      path    => "/bin:/usr/bin:/usr/local/apache2/bin/",
+      alias   => "passenger_apache_module",
+      unless  => "ls ${gem_path}/gems/passenger-${passenger_version}/buildout/apache2/mod_passenger.so"
+  }
 
   file { '/etc/apache2/mods-available/passenger.load':
     ensure  => present,
