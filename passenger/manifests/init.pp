@@ -7,10 +7,10 @@ class passenger (
   $gem_path = $passenger::params::gem_path,
   $gem_binary_path = $passenger::params::gem_binary_path,
   $passenger_start_timeout = $passenger::params::passenger_start_timeout,    
-  $passenger_max_pool_size = $passenger::params::passenger_max_pool_size  
-  $passenger_pool_idle_time = $passenger::params::passenger_pool_idle_time
-  $passenger_max_requests = $passenger::params::passenger_max_requests
-  $passenger_min_instances = $passenger::params::passenger_min_instances
+  $passenger_max_pool_size = $passenger::params::passenger_max_pool_size,
+  $passenger_pool_idle_time = $passenger::params::passenger_pool_idle_time,
+  $passenger_max_requests = $passenger::params::passenger_max_requests,
+  $passenger_min_instances = $passenger::params::passenger_min_instances,
   $passenger_stat_throttle_rate = $passenger::params::passenger_stat_throttle_rate
   ) inherits passenger::params
 {
