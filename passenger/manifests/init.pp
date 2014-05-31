@@ -4,6 +4,7 @@
 class passenger (
   $passenger_ruby = $passenger::params::passenger_ruby,
   $passenger_version = $passenger::params::passenger_version,
+  $ruby_version = $passenger::params::ruby_version,
   $gem_path = $passenger::params::gem_path,
   $gem_binary_path = $passenger::params::gem_binary_path,
   $passenger_start_timeout = $passenger::params::passenger_start_timeout,    
@@ -44,7 +45,7 @@ class passenger (
   #       # require => Class["ruby"],
   #       unless  => "ls ${gem_path}/gems/passenger-${passenger_version}/"
   #   }
-  rbenv::gem { 'passenger': version => '4.0.37', ruby_version => '2.0.0-p247' }
+  rbenv::gem { 'passenger': version => "${passenger_version}", ruby_version => "${ruby_version}" }
   exec {
     "${gem_binary_path}/passenger-install-apache2-module --auto":
       user    => root,
